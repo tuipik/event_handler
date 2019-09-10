@@ -1,0 +1,12 @@
+2019-09-11 01:20:18.088909 - /home/tuipik/PROJECTS/intersog1_tuipik/1/2017-honda-shadow-phantom-buyers-guide.jpg CONVERTED to 1/2017-honda-shadow-phantom-buyers-guide_converted.png and DELETED
+2019-09-11 01:20:18.190138 - /home/tuipik/PROJECTS/intersog1_tuipik/1/BOY_GIRL2_ukr-01.jpg CONVERTED to 1/BOY_GIRL2_ukr-01_converted.png and DELETED
+2019-09-11 01:20:21.345510 - /home/tuipik/PROJECTS/intersog1_tuipik/1/IMG_20170826_064223.jpg CONVERTED to 1/IMG_20170826_064223_converted.png and DELETED
+2019-09-11 01:20:22.440462 - /home/tuipik/PROJECTS/intersog1_tuipik/1/qwerty.doc CONVERTED to 1/qwerty.pdf and DELETED
+2019-09-11 01:20:23.519388 - /home/tuipik/PROJECTS/intersog1_tuipik/1/Договір та Посадова інструкція.doc CONVERTED to 1/Договір та Посадова інструкція.pdf and DELETED
+2019-09-11 01:57:56.426286 - /home/tuipik/PROJECTS/intersog1_tuipik/1/2017-honda-shadow-phantom-buyers-guide.jpg CONVERTED to 1/2017-honda-shadow-phantom-buyers-guide_converted.png and DELETED
+2019-09-11 01:57:56.526077 - /home/tuipik/PROJECTS/intersog1_tuipik/1/BOY_GIRL2_ukr-01.jpg CONVERTED to 1/BOY_GIRL2_ukr-01_converted.png and DELETED
+2019-09-11 01:57:59.646998 - /home/tuipik/PROJECTS/intersog1_tuipik/1/IMG_20170826_064223.jpg CONVERTED to 1/IMG_20170826_064223_converted.png and DELETED
+2019-09-11 01:58:00.797937 - /home/tuipik/PROJECTS/intersog1_tuipik/1/qwerty.doc CONVERTED to 1/qwerty.pdf and DELETED
+2019-09-11 01:58:01.887201 - /home/tuipik/PROJECTS/intersog1_tuipik/1/Договір та Посадова інструкція.doc CONVERTED to 1/Договір та Посадова інструкція.pdf and DELETED
+2019-09-11 01:58:01.887983 - /home/tuipik/PROJECTS/intersog1_tuipik/1/Комуналочка БД 2018-04-01 09-53-19.db DELETED
+2019-09-11 01:58:01.889065 - /home/tuipik/PROJECTS/intersog1_tuipik/1/Комуналочка БД 2019-03-01 08-07-13.db DELETED
