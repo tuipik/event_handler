@@ -4,6 +4,16 @@ from datetime import datetime
 from watchdog.events import RegexMatchingEventHandler
 import subprocess
 import config
+import notify2
+
+
+def notifier(doc):
+    ICON_PATH = "goal_pic.png"
+
+    notify2.init("EVENT HANDLER")
+    n = notify2.Notification(doc, icon=ICON_PATH)
+    n.set_urgency(notify2.URGENCY_NORMAL)
+    n.set_timeout(1000)
 
 
 class DirEventHandler(RegexMatchingEventHandler):
@@ -27,18 +37,21 @@ class DirEventHandler(RegexMatchingEventHandler):
             return f'{os.path.abspath(event.src_path)} DELETED'
 
         self.loggin_to_file(__repr__())
+        notifier(__repr__())
 
     def on_modified(self, event):
         def __repr__():
             return f'{os.path.abspath(event.src_path)} MODIFIED'
 
         self.loggin_to_file(__repr__())
+        notifier(__repr__())
 
     def on_moved(self, event):
         def __repr__():
             return f'{os.path.abspath(event.dest_path)} CREATED'
 
         self.loggin_to_file(__repr__())
+        notifier(__repr__())
 
     def loggin_to_file(self, doc):
         with open('log.txt', 'a') as f:
@@ -51,11 +64,11 @@ class DirEventHandler(RegexMatchingEventHandler):
             return f'{os.path.abspath(event.src_path)} CONVERTED to ' \
                    f'{filename}_converted.png'
 
-
         if ext.lower() in config.images:
             image = Image.open(event.src_path)
             image.save(f"{filename}_converted.png")
             self.loggin_to_file(__repr__())
+            notifier(__repr__())
             if config.del_original_image_after_converting:
                 os.remove(event.src_path)
         else:
@@ -74,6 +87,7 @@ class DirEventHandler(RegexMatchingEventHandler):
             if config.del_original_document_after_converting:
                 os.remove(event.src_path)
             self.loggin_to_file(__repr__())
+            notifier(__repr__())
         else:
             pass
 
@@ -99,6 +113,7 @@ class DirEventHandler(RegexMatchingEventHandler):
                     self.move_file(event, ext)
 
                 self.loggin_to_file(__repr__())
+                notifier(__repr__())
             else:
                 config.path_to_move = os.getcwd() + '/moved_logs/'
                 self. move_file(event, ext)

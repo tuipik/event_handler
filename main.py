@@ -2,7 +2,7 @@ import sys
 import time
 
 from watchdog.observers import Observer
-from settings import DirEventHandler
+from handler import DirEventHandler
 
 
 class EventWatcher:
