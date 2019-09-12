@@ -8,7 +8,7 @@ images = [
     # '.png',
 ]
 
-del_original_image_after_converting = True
+del_original_image_after_converting = False
 
 documents = [
     '.doc',
@@ -23,7 +23,7 @@ teamviewer_cache = [
     '.qmlc'
 ]
 
-
+log_file_name = 'event_handler_log.txt'
 files_to_move = [
     '.log'
 ]

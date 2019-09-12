@@ -8,24 +8,28 @@ import notify2
 
 
 def notifier(doc):
-    ICON_PATH = "goal_pic.png"
+    ICON_PATH = os.getcwd() + "/goal_pic.png"
 
     notify2.init("EVENT HANDLER")
-    n = notify2.Notification(doc, icon=ICON_PATH)
+    n = notify2.Notification('Event Handler',
+                             doc,
+                             icon=ICON_PATH
+                             )
     n.set_urgency(notify2.URGENCY_NORMAL)
     n.set_timeout(1000)
+    n.show()
 
 
 class DirEventHandler(RegexMatchingEventHandler):
     EXTENSIONS = config.images + config.documents + \
                  config.teamviewer_cache + config.files_to_move
-    FILE_REGEX = [r".*\{}$".format(extention) for extention in EXTENSIONS]
+    FILE_REGEX = [r".*\{}$".format(extention) for extention in EXTENSIONS] + \
+                 [r'^event_handler_log']
 
     def __init__(self):
         super().__init__(self.FILE_REGEX)
 
     def on_created(self, event):
-        print(event)
         filename, ext = os.path.splitext(event.src_path)
         self.image_converter(event, filename, ext)
         self.doc_converter(event, filename, ext)
@@ -34,34 +38,34 @@ class DirEventHandler(RegexMatchingEventHandler):
 
     def on_deleted(self, event):
         def __repr__():
-            return f'{os.path.abspath(event.src_path)} DELETED'
+            return f'{os.path.abspath(event.src_path)} --- DELETED'
 
         self.loggin_to_file(__repr__())
         notifier(__repr__())
 
     def on_modified(self, event):
         def __repr__():
-            return f'{os.path.abspath(event.src_path)} MODIFIED'
+            return f'{os.path.abspath(event.src_path)} --- MODIFIED'
 
         self.loggin_to_file(__repr__())
         notifier(__repr__())
 
     def on_moved(self, event):
         def __repr__():
-            return f'{os.path.abspath(event.dest_path)} CREATED'
+            return f'{os.path.abspath(event.dest_path)} --- CREATED'
 
         self.loggin_to_file(__repr__())
         notifier(__repr__())
 
     def loggin_to_file(self, doc):
-        with open('log.txt', 'a') as f:
+        with open(f'{config.log_file_name}', 'a') as f:
             f.write(f'{datetime.now()} - {doc}\n')
         f.close()
 
     def image_converter(self, event, filename, ext):
 
         def __repr__():
-            return f'{os.path.abspath(event.src_path)} CONVERTED to ' \
+            return f'{os.path.abspath(event.src_path)} ---CONVERTED to--- ' \
                    f'{filename}_converted.png'
 
         if ext.lower() in config.images:
@@ -119,5 +123,8 @@ class DirEventHandler(RegexMatchingEventHandler):
                 self. move_file(event, ext)
         else:
             pass
+
+    # def log_file_size_controller(self, event, filename, ext):
+    #     if
 
 
