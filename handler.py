@@ -23,8 +23,7 @@ def notifier(doc):
 class DirEventHandler(RegexMatchingEventHandler):
     EXTENSIONS = config.images + config.documents + \
                  config.teamviewer_cache + config.files_to_move
-    FILE_REGEX = [r".*\{}$".format(extention) for extention in EXTENSIONS] + \
-                 [r'^event_handler_log']
+    FILE_REGEX = [r".*\{}$".format(extention) for extention in EXTENSIONS]
 
     def __init__(self):
         super().__init__(self.FILE_REGEX)
@@ -58,7 +57,7 @@ class DirEventHandler(RegexMatchingEventHandler):
         notifier(__repr__())
 
     def loggin_to_file(self, doc):
-        with open(f'{config.log_file_name}', 'a') as f:
+        with open(f'{config.log_file}', 'a') as f:
             f.write(f'{datetime.now()} - {doc}\n')
         f.close()
 
@@ -124,7 +123,5 @@ class DirEventHandler(RegexMatchingEventHandler):
         else:
             pass
 
-    # def log_file_size_controller(self, event, filename, ext):
-    #     if
 
 

@@ -1,6 +1,5 @@
 
 
-
 images = [
     '.jpg',
     '.jpeg',
@@ -23,8 +22,11 @@ teamviewer_cache = [
     '.qmlc'
 ]
 
-log_file_name = 'event_handler_log.txt'
 files_to_move = [
     '.log'
 ]
 path_to_move = ''
+
+log_file = 'event_handler_log.txt'
+
+
